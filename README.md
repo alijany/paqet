@@ -90,9 +90,16 @@ You'll need to find your network interface name, local IP, and the MAC address o
 
 1.  **Find Interface and Local IP:** Open Command Prompt or PowerShell and run `ipconfig /all`. Look for your active network adapter (e.g., "Ethernet adapter Ethernet", "Wi-Fi adapter Wi-Fi"). Note the "IPv4 Address".
 2.  **Find Interface Name:** Run `netsh interface show interface` to list interface names. Use the "Interface Name" column value (e.g., "Ethernet", "Wi-Fi").
-3.  **Find Gateway MAC:**
-    - First, find your gateway's IP: `ipconfig /all` (look for "Default Gateway")
-    - Then, find its MAC address with `arp -a <gateway_ip>` (e.g., `arp -a 192.168.1.1`)
+3.  **Find Gateway MAC (use your router's MAC, NOT your adapter's MAC):**
+    - **PowerShell Method (Recommended):**
+      ```powershell
+      Get-NetRoute -DestinationPrefix "0.0.0.0/0" | Select-Object -First 1 | ForEach-Object { Get-NetNeighbor -IPAddress $_.NextHop -InterfaceIndex $_.InterfaceIndex | Select-Object IPAddress, LinkLayerAddress }
+      ```
+    - **Alternative Method:**
+      - First, find your gateway's IP: `ipconfig /all` (look for "Default Gateway")
+      - Then, find its MAC address with `arp -a <gateway_ip>` (e.g., `arp -a 192.168.1.1`)
+
+> **⚠️ Common Mistake:** Make sure to use your **gateway/router's MAC address**, not your network adapter's MAC address. See [GATEWAY_MAC_SETUP.md](GATEWAY_MAC_SETUP.md) for detailed instructions.
 
 #### Client Configuration - SOCKS5 Proxy Mode
 
