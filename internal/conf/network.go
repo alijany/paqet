@@ -3,6 +3,7 @@ package conf
 import (
 	"fmt"
 	"net"
+	"runtime"
 )
 
 type Addr struct {
@@ -33,7 +34,9 @@ func (n *Network) validate() []error {
 	if n.Interface_ == "" {
 		errors = append(errors, fmt.Errorf("network interface is required"))
 	}
-	if len(n.Interface_) > 15 {
+	// On Windows, pcap device names include GUIDs and can be very long
+	// On Linux/macOS, interface names are short (eth0, wlan0, en0, etc.)
+	if runtime.GOOS != "windows" && len(n.Interface_) > 15 {
 		errors = append(errors, fmt.Errorf("network interface name too long (max 15 characters): '%s'", n.Interface_))
 	}
 	lIface, err := net.InterfaceByName(n.Interface_)
