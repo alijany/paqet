@@ -15,7 +15,7 @@ type Addr struct {
 
 type Network struct {
 	Interface_ string         `yaml:"interface"`
-	GUID       string         `yaml:"guid"`
+	GUID       string         `yaml:"guid"`  // Windows only: NPF device GUID (e.g., "{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}")
 	IPv4       Addr           `yaml:"ipv4"`
 	IPv6       Addr           `yaml:"ipv6"`
 	PCAP       PCAP           `yaml:"pcap"`
