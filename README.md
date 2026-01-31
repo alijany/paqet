@@ -118,11 +118,7 @@ socks5:
 # Network interface settings
 network:
   interface: "en0" # CHANGE ME: Network interface (en0, eth0, wlan0, etc.)
-<<<<<<< HEAD
   # guid: "\Device\NPF_{...}" # Windows only (Npcap).
-=======
-  # guid: "{...}" # Windows only: NPF device GUID from Get-NetAdapter
->>>>>>> master
   ipv4:
     addr: "192.168.1.100:0" # CHANGE ME: Local IP (use port 0 for random port)
     router_mac: "aa:bb:cc:dd:ee:ff" # CHANGE ME: Gateway/router MAC address
