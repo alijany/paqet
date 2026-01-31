@@ -35,7 +35,20 @@ The system operates in three layers: raw TCP packet injection, encrypted transpo
 
 KCP provides reliable, encrypted communication optimized for high-loss or unpredictable networks, using aggressive retransmission, forward error correction, and symmetric encryption with a shared secret key. It is especially well-suited for real-time applications and gaming where low latency are critical.
 
-## Getting Started
+## Documentation
+
+📚 **Complete documentation is available in the [docs/](docs/) folder:**
+
+- **[Developer Guide](docs/DEVELOPER_GUIDE.md)** - Comprehensive guide to understanding and contributing to paqet
+- **[Architecture](docs/ARCHITECTURE.md)** - Detailed technical architecture and design decisions
+- **[Installation Guide](docs/INSTALLATION.md)** - Platform-specific installation instructions
+- **[Configuration Guide](docs/CONFIGURATION.md)** - Complete configuration reference
+- **[Troubleshooting](docs/TROUBLESHOOTING.md)** - Common issues and solutions
+- **[Contributing](docs/CONTRIBUTING.md)** - Guidelines for contributors
+- **[Build Guide](docs/BUILD.md)** - Building from source
+- **[Protocol Specification](docs/PROTOCOL.md)** - Protocol details and packet formats
+
+## Quick Start
 
 ### Prerequisites
 
