@@ -299,7 +299,10 @@ cd paqet/example
    server:
      addr: "server.example.com:9999"  # Server address
    transport:
+     protocol: "kcp"
+     conn: 1
      kcp:
+       mode: "fast"
        key: "your-secret-key"   # Shared secret
    ```
 

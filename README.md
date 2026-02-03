@@ -172,10 +172,14 @@ network:
 
 # Transport protocol configuration
 transport:
-  protocol: "kcp" # Transport protocol (currently only "kcp" supported)
+  protocol: "kcp"  # Transport protocol (currently only "kcp" supported)
+  conn: 1          # Number of connections (1-256, default: 1)
+
+  # KCP protocol settings
   kcp:
-    block: "aes" # Encryption algorithm
-    key: "your-secret-key-here" # CHANGE ME: Secret key (must match client)
+    mode: "fast"              # KCP mode: normal, fast, fast2, fast3, manual
+    key: "your-secret-key-here"       # CHANGE ME: Secret key (must match client)
+    # Optional: block: "aes"    # Encryption cipher (aes, aes-128, etc.)
 ```
 
 #### Critical Firewall Configuration

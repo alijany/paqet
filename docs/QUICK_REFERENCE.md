@@ -79,9 +79,11 @@ server:
   addr: "10.0.0.100:9999"
 transport:
   protocol: "kcp"
+  conn: 1
   kcp:
-    block: "aes"
+    mode: "fast"
     key: "your-secret-key"
+    # Optional: block: "aes"
 ```
 
 ## Minimal Server Config
@@ -97,9 +99,11 @@ network:
     router_mac: "aa:bb:cc:dd:ee:ff"
 transport:
   protocol: "kcp"
+  conn: 1
   kcp:
-    block: "aes"
+    mode: "fast"
     key: "your-secret-key"
+    # Optional: block: "aes"
 ```
 
 ## Using SOCKS5 Proxy
